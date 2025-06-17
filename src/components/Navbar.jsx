@@ -24,19 +24,28 @@ function Navbar() {
         backgroundColor: "#fcfaf5",
       }}
     >
-      {isDesktop ? (
-        // Show YouTube Icon only on Desktop
-        <Link to={"/"}>
-          <img src="/svg/youtube-icon.svg" alt="youtube-icon" />
-        </Link>
-      ) : (
-        // Show Menu Icon only on Mobile
-        <IconButton>
-          <Menu />
-        </IconButton>
-      )}
-      <SearchBar />
-      <UploadAvatars />
+      {/* Logo */}
+      <Stack direction={"row"} alignItems={"center"} spacing={2}>
+        {isDesktop ? (
+          // Show YouTube Icon only on Desktop
+          <Link to={"/"}>
+            <img src="/svg/youtube-icon.svg" alt="youtube-icon" />
+          </Link>
+        ) : (
+          // Show Menu Icon only on Mobile
+          <IconButton>
+            <Menu />
+          </IconButton>
+        )}
+      </Stack>
+      {/* SearchBar */}
+      <Stack flexGrow={1} justifyContent={"center"} alignItems={"center"}>
+        <SearchBar />
+      </Stack>
+      {/* User Avatar */}
+      <Stack direction={"row"} alignItems={"center"} spacing={2}>
+        <UploadAvatars />
+      </Stack>
     </Stack>
   );
 }
