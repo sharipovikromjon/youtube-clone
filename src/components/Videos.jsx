@@ -1,5 +1,5 @@
 
-function Videos() {
+function Videos({videos}) {
   return (
     <div>Videos Test</div>
   )

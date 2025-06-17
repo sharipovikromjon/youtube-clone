@@ -7,7 +7,6 @@ function Category({ handleSelectedCategory, selectedCategory }) {
   return (
     <Stack direction={"row"} sx={{ overflowX: "auto" }}>
       {category.map((item) => {
-        console.log(item.name);
         return (
           <button
             key={item.name}
