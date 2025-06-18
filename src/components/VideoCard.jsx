@@ -11,7 +11,13 @@ import moment from "moment/moment";
 
 function VideoCard({ videos }) {
   return (
-    <Card sx={{ width: {xs: "100%", sm: "400px", md: "345px"}, borderRadius: 0, boxShadow: "none" }}>
+    <Card
+      sx={{
+        width: { xs: "100%", sm: "400px", md: "345px" },
+        borderRadius: 0,
+        boxShadow: "none",
+      }}
+    >
       <CardMedia
         component={"img"}
         image={
@@ -19,7 +25,10 @@ function VideoCard({ videos }) {
           "/png/placeholder-thumbnail.png"
         }
         alt={videos?.snippet?.title}
-        sx={{ width: {xs: "100%", sm: "400px", md: "345px"}, height: "180px" }}
+        sx={{
+          width: { xs: "100%", sm: "400px", md: "345px" },
+          height: "180px",
+        }}
       />
       <CardContent
         sx={{

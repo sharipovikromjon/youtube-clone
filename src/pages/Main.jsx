@@ -28,7 +28,7 @@ function Main() {
       }
     };
     fetchVideos();
-  }, []);
+  }, [selectedCategory]);
   return (
     <Stack>
       <Category
