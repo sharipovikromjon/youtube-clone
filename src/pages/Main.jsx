@@ -12,6 +12,7 @@ import { APIUtil } from "../utils/api.util";
 function Main() {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState([]);
+
   const handleSelectedCategory = (category) => setSelectedCategory(category);
   useEffect(() => {
     // Option 1: Using .then() method
@@ -22,7 +23,7 @@ function Main() {
         const data = await APIUtil.fetching(
           `search?part=snippet&q=${selectedCategory}`
         );
-        setVideos(data);
+        setVideos(data.items);
       } catch {
         console.error("Error fetching videos: ", error);
       }

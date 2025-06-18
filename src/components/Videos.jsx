@@ -3,34 +3,24 @@ import VideoCard from "./VideoCard";
 import ChannelCard from "./ChannelCard";
 
 function Videos({ videos }) {
-  console.log(videos);
+  if (!videos || !Array.isArray(videos) || videos.length === 0) {
+    return <p>No videos available :(</p>;
+  }
   return (
     <Stack
       width={"100%"}
       direction={"row"}
       justifyContent={"center"}
-      // sx={{
-      //   justifyContent: {
-      //     xs: "center",
-      //     sm: "center",
-      //     md: "center",
-      //     lg: "start",
-      //   },
-      // }}
       alignItems={"center"}
       flexWrap={"wrap"}
       gap={2}
     >
-      {Array.isArray(videos) ? (
-        videos.map((item) => (
-          <Box key={item.id.videoId || Math.random()}>
-            {item.id.videoId && <VideoCard videos={item} />}
-            {item.id.channelId && <ChannelCard videos={item}/>}
-          </Box>
-        ))
-      ) : (
-        <p>No videos available</p>
-      )}
+      {videos.map((item) => (
+        <Box key={item.id?.videoId || Math.random()}>
+          {item.id?.videoId && <VideoCard videos={item} />}
+          {item.id?.channelId && <ChannelCard videos={item} />}
+        </Box>
+      ))}
     </Stack>
   );
 }
