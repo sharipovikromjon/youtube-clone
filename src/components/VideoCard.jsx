@@ -9,7 +9,14 @@ import {
 } from "@mui/material";
 import moment from "moment/moment";
 
-function VideoCard({ videos }) {
+function VideoCard({ videos, statistics }) {
+  function formatViewCount(viewNumber) {
+    const num = parseInt(viewNumber, 10);
+    if (num >= 1_000_000_000) return Math.floor(num / 1_000_000_000) + "B";
+    if (num >= 1_000_000) return Math.floor(num / 1_000_000) + "M";
+    if (num >= 1_000) return Math.floor(num / 1_000) + "K";
+    return num.toString();
+  }
   return (
     <Card
       sx={{
@@ -38,9 +45,19 @@ function VideoCard({ videos }) {
         }}
       >
         <>
-          <Typography sx={{ my: "5px", opacity: "0.4" }}>
-            {moment(videos?.snippet?.publishedAt).fromNow()}
-          </Typography>
+          <Stack direction={"row"} alignItems={"center"} columnGap={"10px"}>
+            <Typography sx={{ my: "5px", opacity: "0.4" }}>
+              {statistics?.viewCount
+                ? `${formatViewCount(statistics.viewCount)} views`
+                : "N/A views"}
+            </Typography>
+            <Typography
+              sx={{ my: "5px", opacity: "0.4", listStyleType: "circle" }}
+            >
+              • {moment(videos?.snippet?.publishedAt).fromNow()}
+            </Typography>
+          </Stack>
+
           <Typography
             variant="subtitle1"
             fontWeight={"bold"}

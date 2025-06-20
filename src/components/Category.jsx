@@ -5,7 +5,7 @@ import { category } from "../constants/constant-values";
 
 function Category({ handleSelectedCategory, selectedCategory }) {
   return (
-    <Stack direction={"row"} sx={{ overflowX: "auto" }}>
+    <Stack direction={"row"} justifyContent={"center"} sx={{ overflowX: "auto" }}>
       {category.map((item) => {
         return (
           <button

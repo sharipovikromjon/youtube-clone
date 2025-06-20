@@ -3,7 +3,7 @@ import VideoCard from "./VideoCard";
 import ChannelCard from "./ChannelCard";
 
 function Videos({ videos }) {
-  if (!videos || !Array.isArray(videos) || videos.length === 0) {
+  if (!videos || videos.length === 0) {
     return <p>No videos available :(</p>;
   }
   return (
@@ -17,7 +17,7 @@ function Videos({ videos }) {
     >
       {videos.map((item) => (
         <Box key={item.id?.videoId || Math.random()}>
-          {item.id?.videoId && <VideoCard videos={item} />}
+          {item.id?.videoId && <VideoCard videos={item} statistics={item.statistics} />}
           {item.id?.channelId && <ChannelCard videos={item} />}
         </Box>
       ))}

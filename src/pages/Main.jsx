@@ -2,11 +2,10 @@
 // Secondary: #76323f
 // React imports
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import Videos from "../components/Videos";
 import Category from "../components/Category";
 // MUI Imports
 import { Box, Container, Stack, Typography } from "@mui/material";
-import Videos from "../components/Videos";
 import { APIUtil } from "../utils/api.util";
 
 function Main() {
@@ -23,9 +22,9 @@ function Main() {
         const data = await APIUtil.fetching(
           `search?part=snippet&q=${selectedCategory}`
         );
-        setVideos(data.items);
-      } catch {
-        console.error("Error fetching videos: ", error);
+        setVideos(data); 
+      } catch (error) {
+        console.error("Error fetching videos: ", error); 
       }
     };
     fetchVideos();
