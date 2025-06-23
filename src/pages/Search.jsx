@@ -13,7 +13,7 @@ function Search() {
       if (!id) return; // Validate id before making the API call
       try {
         const data = await APIUtil.fetching(`search?part=snippet&q=${id}`);
-        setVideos(data.items);
+        setVideos(data);
       } catch (error) {
         console.error("Error fetching videos: ", error);
       }
