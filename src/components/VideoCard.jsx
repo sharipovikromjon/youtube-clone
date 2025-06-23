@@ -8,8 +8,10 @@ import {
   Avatar,
 } from "@mui/material";
 import moment from "moment/moment";
+import { Link } from "react-router";
 
 function VideoCard({ videos, statistics }) {
+  
   function formatViewCount(viewNumber) {
     const num = parseInt(viewNumber, 10);
     if (num >= 1_000_000_000) return Math.floor(num / 1_000_000_000) + "B";
@@ -25,6 +27,8 @@ function VideoCard({ videos, statistics }) {
         boxShadow: "none",
       }}
     >
+      <Link to={`/video/${videos.id.videoId}`}>
+      
       <CardMedia
         component={"img"}
         image={
@@ -37,6 +41,7 @@ function VideoCard({ videos, statistics }) {
           height: "180px",
         }}
       />
+      </Link>
       <CardContent
         sx={{
           backgroundColor: "#fcfaf5",
@@ -44,7 +49,7 @@ function VideoCard({ videos, statistics }) {
           position: "relative",
         }}
       >
-        <>
+        <Link to={`/video/${videos.id.videoId}`}>
           <Stack direction={"row"} alignItems={"center"} columnGap={"10px"}>
             <Typography sx={{ my: "5px", opacity: "0.4" }}>
               {statistics?.viewCount
@@ -72,7 +77,7 @@ function VideoCard({ videos, statistics }) {
           >
             {videos?.snippet?.description.slice(0, 50)}
           </Typography>
-        </>
+        </Link>
         <>
           <Stack
             direction={"row"}
