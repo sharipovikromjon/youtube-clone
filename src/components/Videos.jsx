@@ -14,10 +14,13 @@ function Videos({ videos }) {
       alignItems={"center"}
       flexWrap={"wrap"}
       gap={2}
+      mt={"30px"}
     >
       {videos.map((item) => (
         <Box key={item.id?.videoId || Math.random()}>
-          {item.id?.videoId && <VideoCard videos={item} statistics={item.statistics} />}
+          {item.id?.videoId && (
+            <VideoCard videos={item} statistics={item.statistics || {}} />
+          )}
           {item.id?.channelId && <ChannelCard videos={item} />}
         </Box>
       ))}

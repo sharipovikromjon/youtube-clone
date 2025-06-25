@@ -7,7 +7,7 @@ const options = {
   },
   headers: {
     "x-rapidapi-key": `${import.meta.env.VITE_RAPID_API_KEY}`,
-    "x-rapidapi-host": `${BASE_URL.replace("https://", "")}`, 
+    "x-rapidapi-host": `${BASE_URL.replace("https://", "")}`,
     // problem was with the host header having "https://" prefix
   },
 };
